@@ -1,21 +1,90 @@
-<h1>Danh sach</h1>
-<a routerLink="/create">Them sach</a>
-<br><br>
-<table>
-  <tr>
-    <th>Stt</th>
-    <th>Title</th>
-    <th>Author</th>
-    <th>Edit</th>
-    <th>Delete</th>
-    <th>View</th>
-  </tr>
-  <tr *ngFor="let book of books;index as i">
-    <td>{{i+1}}</td>
-    <td>{{book.title}}</td>
-    <td>{{book.author}}</td>
-    <td><a [routerLink]="['/edit', book.id]">Edit</a></td>
-    <td><a [routerLink]="['/delete', book.id]">Delete</a></td>
-    <td><a [routerLink]="['/view', book.id]">View</a></td>
-  </tr>
-</table>
+<!--<h1>Danh sach</h1>-->
+<!--<a routerLink="/create">Them sach</a>-->
+<!--<br><br>-->
+<!--<table>-->
+<!--  <tr>-->
+<!--    <th>Stt</th>-->
+<!--    <th>Title</th>-->
+<!--    <th>Author</th>-->
+<!--    <th>Edit</th>-->
+<!--    <th>Delete</th>-->
+<!--    <th>View</th>-->
+<!--  </tr>-->
+<!--  <tr *ngFor="let book of books;index as i">-->
+<!--    <td>{{i+1}}</td>-->
+<!--    <td>{{book.title}}</td>-->
+<!--    <td>{{book.author}}</td>-->
+<!--    <td><a [routerLink]="['/edit', book.id]">Edit</a></td>-->
+<!--    <td><a [routerLink]="['/delete', book.id]">Delete</a></td>-->
+<!--    <td><a [routerLink]="['/view', book.id]">View</a></td>-->
+<!--  </tr>-->
+<!--</table>-->
+<section class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1>Book Management</h1>
+      </div>
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+          <li class="breadcrumb-item active">Book Management</li>
+        </ol>
+      </div>
+    </div>
+  </div><!-- /.container-fluid -->
+</section>
+
+<!-- Main content -->
+<section class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">
+              <a routerLink="/create" class="btn btn-primary">
+                <span class="fa fa-plus"></span> Add Book
+              </a>
+            </h3>
+          </div>
+          <!-- /.card-header -->
+          <div class="card-body">
+            <table id="cities" class="table table-bordered table-hover">
+              <thead>
+              <tr>
+                <th>#</th>
+                <th>Title</th>
+                <th>Author</th>
+                <th></th>
+                <th></th>
+                <th></th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let book of books, index as i ">
+                <th scope="row">{{i + 1}}</th>
+                <td>{{book.title}}</td>
+                <td>{{book.author}}</td>
+                <td><a [routerLink]="['/edit', book.id]" class="btn btn-outline-warning">
+                  <span class="fa fa-edit"></span>
+                </a></td>
+                <td><a [routerLink]="['/delete', book.id]" class="btn btn-outline-danger">
+                  <span class="fa fa-trash"></span>
+                </a></td>
+                <td><a [routerLink]="['/view', book.id]" class="btn btn-outline-danger">
+                  <span class="fa fa-recycle"></span>
+                </a></td>
+              </tr>
+            </table>
+          </div>
+          <!-- /.card-body -->
+        </div>
+
+      </div>
+      <!-- /.col -->
+    </div>
+    <!-- /.row -->
+  </div>
+  <!-- /.container-fluid -->
+</section>
